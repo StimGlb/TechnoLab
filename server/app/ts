@@ -1,0 +1,16 @@
+import express from 'express';
+import healthRouter from './routes/health'; // Importez le routeur
+
+const app = express();
+
+// Middlewares
+app.use(express.json());
+
+// Routes
+app.use(healthRouter); // Utilisez le routeur de health
+
+// Démarrage du serveur
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`⚡ TechnoLab API démarré sur http://localhost:${PORT}`);
+});

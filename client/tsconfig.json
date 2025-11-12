@@ -1,40 +1,27 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
-  
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    // Cible Node.js 18+ (ajustez selon votre version)
     "target": "ES2022",
-    // Modules CommonJS (requis pour Node.js, sauf si vous utilisez "type": "module" dans package.json)
-    "module": "CommonJS",
-    // Génère les déclarations de types (.d.ts)
-    "declaration": true,
-    // Chemin racine pour les imports absolus
-    "baseUrl": "./src",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["DOM", "ES2022"],
+    "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
-    // Strict pour un code robuste
-    "strict": true,
-    // Autorise les imports de fichiers .js (utile pour les bibliothèques non-TS)
     "allowJs": true,
-    // Désactive la vérification des JS (sauf si vous migrez progressivement)
     "checkJs": false,
-    // Évite les erreurs de types dans node_modules
-    "skipLibCheck": true,
-    // Pour importer des JSON sans erreur
-    "resolveJsonModule": true,
-    // Active esModuleInterop pour les imports par défaut (ex: import express from 'express')
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    // Permet d'utiliser __dirname dans les modules ES (si module: "NodeNext")
-    "moduleResolution": "NodeNext",
-    // Exclut les fichiers de test et config
-    "exclude": ["**/*.test.ts", "**/*.spec.ts", "node_modules"]
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "types": ["vite/client"]
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["src", "env.d.ts", "vite.config.*"],
+  "exclude": ["node_modules", "dist"]
 }
