@@ -1,42 +1,187 @@
-#root {
-  max-width: 1280px;
+/* 🎨 Palette bleutée "TechnoLab" - Inspiration éducative/technologique */
+:root {
+  --pedagogie-blue-50: #f0f9ff;
+  --pedagogie-blue-100: #e0f2fe;
+  --pedagogie-blue-300: #7dd3fc;
+  --pedagogie-blue-500: #3b82f6; /* Bleu primaire */
+  --pedagogie-blue-600: #2563eb;
+  --pedagogie-blue-800: #1e40af;
+  --pedagogie-blue-900: #1e3a8a;
+
+  --pedagogie-gray-50: #f9fafb;
+  --pedagogie-gray-200: #e5e7eb;
+  --pedagogie-gray-800: #1f2937;
+
+  --pedagogie-success: #10b981;
+  --pedagogie-warning: #f59e0b;
+  --pedagogie-danger: #ef4444;
+
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+
+  --box-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --box-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* 🌓 Dark Mode (automatique avec Tailwind, mais surcharge si besoin) */
+.dark {
+  --pedagogie-gray-800: #f9fafb;
+  --pedagogie-gray-200: #374151;
+}
+
+/* ✨ Styles globaux */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--pedagogie-gray-800);
+  background-color: var(--pedagogie-blue-50);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 📄 Conteneur principal (pour éviter les bords collés) */
+.container {
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0 1rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 🔗 Liens stylisés */
+a {
+  color: var(--pedagogie-blue-600);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a:hover {
+  color: var(--pedagogie-blue-800);
+  text-decoration: underline;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* 📝 Typographie */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--pedagogie-blue-800);
 }
 
+h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid var(--pedagogie-blue-200);
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--pedagogie-blue-700);
+}
+
+/* 🔧 Utile pour les cartes/cadres (ex: fiches pédagogiques) */
 .card {
-  padding: 2em;
+  background: white;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  padding: 1.5rem;
+  border: 1px solid var(--pedagogie-gray-200);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-md);
+}
+
+/* 🛠️ Badges pour les niveaux (5ème/4ème/3ème) */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  line-height: 1;
+}
+
+.badge-5eme { background-color: var(--pedagogie-blue-100); color: var(--pedagogie-blue-800); }
+.badge-4eme { background-color: #dbeafe; color: var(--pedagogie-blue-900); }
+.badge-3eme { background-color: #bfdbfe; color: var(--pedagogie-blue-900); }
+
+/* 📅 Pour les éléments interactifs (boutons, etc.) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--pedagogie-blue-500);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--pedagogie-blue-600);
+}
+
+/* 🔍 Barre de recherche (pour la Phase 1) */
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--pedagogie-gray-200);
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--pedagogie-blue-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* 📊 Pour les tableaux (suivi des compétences) */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.table th {
+  background-color: var(--pedagogie-blue-50);
+  color: var(--pedagogie-blue-800);
+  text-align: left;
+  padding: 0.75rem;
+  font-weight: 600;
+}
+
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--pedagogie-gray-200);
+}
+
+/* 🎨 Animation subtile pour les transitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
 }

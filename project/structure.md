@@ -46,25 +46,3 @@ server/
 ├── package.json        # Dépendances back-end
 ├── .env                # Variables d’environnement
 └── README.md           # Documentation serveur
-
-
----
-
-## Dossiers additionnels (optionnels)
-
-- `docs/` : Documentation technique, guides d’utilisation, API, références académiques.
-- `tests/` : Tests unitaires et d’intégration (client et/ou serveur).
-- `scripts/` : Scripts de déploiement, migration, etc.
-
----
-
-## Bonnes pratiques
-
-- **Séparation stricte** entre client et serveur pour faciliter le développement, la maintenance et le déploiement[1][4][8][9].
-- **Documentation claire** dans chaque partie (`README.md` dédié).
-- **Utilisation de conventions de nommage** cohérentes et explicites.
-- **Gestion indépendante des dépendances** (`package.json` dans chaque dossier).
-
----
-
-*Adapte cette structure selon la taille et la complexité de ton projet. Elle est conçue pour évoluer facilement et accueillir de nouveaux modules ou fonctionnalités.*
