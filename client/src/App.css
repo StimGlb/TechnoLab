@@ -1,16 +1,9 @@
-/* Exemple d'utilisation de classes utilitaires Tailwind combinées à des classes custom */
-.logo {
-  /* Si vous voulez garder la classe .logo, utilisez @apply pour appliquer utilitaires Tailwind */
-  @apply h-24 w-24 transition-transform duration-200;
-}
-.logo.react {
-  @apply hover:scale-110;
-}
-.card {
-  @apply p-6 bg-white rounded-xl shadow-md my-6;
-}
-.read-the-docs {
-  @apply text-sm text-gray-500;
-}
+@reference "tailwindcss";
 
-/* Si vous préférez tout en Tailwind, remplacez les className dans App.tsx par des utilitaires */
+/* App.css — Tailwind v4 */
+@layer components {
+  .logo { @apply h-24 w-24 transition-transform duration-200; }
+  .logo.react { @apply hover:scale-110; }
+  .card { @apply p-6 bg-white rounded-xl shadow-md my-6; }
+  .read-the-docs { @apply text-sm text-gray-500; }
+}
