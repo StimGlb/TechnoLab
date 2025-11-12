@@ -1,4 +1,4 @@
-# 📚 TechnoKit
+# 📚 TechnoLab
 
 > Mon atelier numérique pour organiser et structurer mes cours de technologie au collège
 
@@ -8,7 +8,7 @@
 
 ## 🎯 À propos
 
-**TechnoLab** est une application web personnelle qui me sert de memento interactif et d'outil d'organisation pour mes cours de technologie en collège (cycle 4). 
+**TechnoKit** est une application web personnelle qui me sert de memento interactif et d'outil d'organisation pour mes cours de technologie en collège (cycle 4). 
 
 Ce projet répond à un double objectif :
 - 🎓 **Professionnel** : Centraliser et structurer mes séquences pédagogiques, fiches d'activités, et suivis de compétences
