@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // Cible ES2020 pour une compatibilité moderne (Vite le transpile pour les anciens navigateurs)
+    "target": "ES2020",
+    // Modules ES (compatible avec Vite et les imports/exports natifs)
+    "module": "ESNext",
+    // Génère des fichiers .js + .d.ts (déclarations de types)
+    "declaration": true,
+    // Chemin racine pour les imports absolus (ex: '@/components' au lieu de '../../components')
+    "baseUrl": "./src",
+    // Chemins personnalisés pour éviter les imports relatifs
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    // Strict pour un typage robuste (recommandé)
+    "strict": true,
+    // Vérifie les types dans les JSX (pour React)
+    "jsx": "react-jsx",
+    // Conserve les JSX dans le output (Vite gère la transpilation)
+    "jsxImportSource": "react",
+    // Autorise les imports de fichiers non-TS (ex: images, CSS)
+    "allowJs": true,
+    // Inclut les fichiers .js dans la vérification de types
+    "checkJs": false,
+    // Évite les erreurs de types pour les modules sans typage (ex: bibliothèques JS)
+    "skipLibCheck": true,
+    // Active le mode strict pour les classes (meilleure inférence)
+    "esModuleInterop": true,
+    // Permet d'importer des types via 'import type'
+    "importsNotUsedAsValues": "error",
+    // Force l'utilisation de 'import type' pour les imports de types uniquement
+    "verbatimModuleSyntax": true,
+    // Exclut les tests et fichiers de config des vérifications
+    "exclude": ["**/*.test.ts", "**/*.spec.ts", "vite.config.ts"]
+  },
+  // Fichiers à inclure dans la compilation
+  "include": ["src/**/*", "vite.config.ts"],
+  // Références vers d'autres tsconfig (si vous utilisez des projets composites)
+  "references": []
+}

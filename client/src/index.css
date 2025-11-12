@@ -1,0 +1,21 @@
+/* Importe Tailwind et ses couches */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles personnalisés (optionnel) */
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-bold text-gray-800 dark:text-white;
+  }
+  /* Style pour les cartes de cours */
+  .course-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow;
+  }
+}
+
+/* Mode sombre (si vous l'utilisez) */
+.dark {
+  --color-text: #e2e8f0;
+  --color-bg: #1e293b;
+}
