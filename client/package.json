@@ -12,7 +12,13 @@
     "clean": "rm -rf node_modules/.vite dist",
     "clean:all": "rm -rf node_modules node_modules/.vite dist package-lock.json",
     "fresh": "npm run clean && npm run dev",
-    "reinstall": "npm run clean:all && npm install && npm run dev"
+    "reinstall": "npm run clean:all && npm install && npm run dev",
+    "migrate:tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "create-icon": "npx @iconify/json --icons fa-solid --save",
+    "upgrade:deps": "npx npm-check -u",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "setup": "npm install && npm run build && npm run lint:fix",
+    "release": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.13.2",
