@@ -2,4 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Vos styles personnalisés ci‑dessous */
+/* Placez ici vos styles globaux personnalisés si besoin */
+/* Exemple minimal pour reset/custom */
+html, body, #root {
+  height: 100%;
+}
+body {
+  @apply bg-gray-50 text-gray-800 antialiased;
+}
