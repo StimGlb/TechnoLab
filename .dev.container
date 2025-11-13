@@ -1,0 +1,44 @@
+{
+  "name": "TechnoLab (React/Vite + Node.js)",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose", // Évite de perdre des données
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",    // Formattage automatique
+        "dbaeumer.vscode-eslint",    // Intégration ESLint
+        "ms-vscode.vscode-typescript-next", // Support TypeScript
+        "gitHub.copilot",           // GitHub Copilot
+        "gitHub.copilot-chat",      // Copilot Chat (si disponible)
+        "bradlc.vscode-tailwindcss" // Si vous utilisez Tailwind
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "eslint.validate": ["typescript", "typescriptreact"],
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "git.confirmSync": false,
+        "explorer.confirmDelete": false
+      }
+    }
+  },
+  "forwardPorts": [5173, 6006], // Ports pour Vite (5173) et Storybook (6006)
+  "remoteUser": "node",        // Évite les problèmes de permissions
+  "runArgs": ["--init"],       // Assure un arrêt propre du conteneur
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false,
+      "username": "node",
+      "uid": "1000",
+      "gid": "1000"
+    }
+  }
+}
