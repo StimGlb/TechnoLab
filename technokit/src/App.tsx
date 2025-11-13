@@ -37,7 +37,7 @@ export default function App() {
                 </div>
                 <div>
                   <h1 className="text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                    TechnoLab
+                    TechnoKit
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400">Cycle 4 • Collège</p>
                 </div>
@@ -136,7 +136,7 @@ export default function App() {
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                Bienvenue sur TechnoLab
+                Bienvenue sur TechnoKit
               </h2>
               
               <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-2xl">
@@ -263,7 +263,7 @@ export default function App() {
         <footer className="mt-16 border-t border-slate-200 dark:border-slate-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <p className="text-center text-sm text-slate-500 dark:text-slate-400">
-              © {new Date().getFullYear()} TechnoLab • Collège Moulin à Vent • React + Vite + Tailwind + Claude AI
+              © {new Date().getFullYear()} TechnoKit • Académie de Versailles • React + Vite + Tailwind + Claude AI
             </p>
           </div>
         </footer>
