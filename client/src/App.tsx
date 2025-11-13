@@ -1,12 +1,14 @@
 import { useState } from 'react'
-import { Menu, X, Moon, Sun, Key, BookOpen, Bot, FileText, Settings } from 'lucide-react'
+import { Menu, X, Moon, Sun, Key, BookOpen, Bot, FileText, Settings, Cpu } from 'lucide-react'
+import { MBot2Activity } from './components/features/Robotique/MBot2Activity'
 
 export default function App() {
   const [isDark, setIsDark] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [apiKey, setApiKey] = useState('')
   const [isApiKeyVisible, setIsApiKeyVisible] = useState(false)
-  const [activeSection, setActiveSection] = useState<'home' | 'sequences' | 'chat' | 'fiches'>('home')
+  const [isApiValid, setIsApiValid] = useState(false)
+  const [activeSection, setActiveSection] = useState<'home' | 'sequences' | 'chat' | 'fiches' | 'robotique'>('home')
 
   // Toggle dark mode
   const toggleDarkMode = () => setIsDark(!isDark)
@@ -56,6 +58,12 @@ export default function App() {
                   onClick={() => setActiveSection('sequences')}
                 />
                 <NavButton 
+                  icon={<Cpu size={18} />} 
+                  label="Robotique" 
+                  active={activeSection === 'robotique'}
+                  onClick={() => setActiveSection('robotique')}
+                />
+                <NavButton 
                   icon={<Bot size={18} />} 
                   label="TechnoChat" 
                   active={activeSection === 'chat'}
@@ -94,6 +102,14 @@ export default function App() {
                 <div className="flex flex-col gap-2">
                   <MobileNavButton icon={<BookOpen size={18} />} label="Accueil" onClick={() => setActiveSection('home')} />
                   <MobileNavButton icon={<FileText size={18} />} label="Séquences" onClick={() => setActiveSection('sequences')} />
+                  <MobileNavButton 
+                    icon={<Cpu size={20} />} 
+                    label="Robotique" 
+                    onClick={() => {
+                      setActiveSection('robotique')
+                      setIsMenuOpen(false)
+                    }}
+                  />
                   <MobileNavButton icon={<Bot size={18} />} label="TechnoChat" onClick={() => setActiveSection('chat')} />
                   <MobileNavButton icon={<Settings size={18} />} label="Fiches" onClick={() => setActiveSection('fiches')} />
                 </div>
@@ -104,6 +120,10 @@ export default function App() {
 
         {/* Hero Section - Configuration API */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+          {/* 👇 SYSTÈME DE ROUTING CONDITIONNEL */}
+          {activeSection === 'home' && (
+            <>
           
           {/* Section Hero avec gradient */}
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-1 shadow-2xl">
@@ -202,6 +222,41 @@ export default function App() {
             <StatCard label="Élèves" value="128" />
             <StatCard label="Heures" value="256" />
           </div>
+          </>
+          )}
+          {/* 👇 NOUVELLE SECTION ROBOTIQUE */}
+          {activeSection === 'robotique' && (
+            <MBot2Activity level="débutant" />
+          )}
+
+          {/* 👇 AUTRES SECTIONS (à développer) */}
+          {activeSection === 'sequences' && (
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg">
+              <h2 className="text-2xl font-bold mb-4">📚 Séquences Pédagogiques</h2>
+              <p className="text-slate-600 dark:text-slate-400">
+                Section en développement... Liste des séquences par niveau (5ème, 4ème, 3ème)
+              </p>
+            </div>
+          )}
+
+          {activeSection === 'chat' && (
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg">
+              <h2 className="text-2xl font-bold mb-4">🤖 TechnoChat</h2>
+              <p className="text-slate-600 dark:text-slate-400">
+                Assistant IA pour générer du contenu pédagogique...
+              </p>
+            </div>
+          )}
+
+          {activeSection === 'fiches' && (
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg">
+              <h2 className="text-2xl font-bold mb-4">📄 Fiches d'Activités</h2>
+              <p className="text-slate-600 dark:text-slate-400">
+                Gestion et export des fiches d'activités...
+              </p>
+            </div>
+          )}
+
         </main>
 
         {/* Footer */}
